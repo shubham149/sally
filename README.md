@@ -27,4 +27,3 @@ Then run Sally to start the HTTP server:
 ```
 $ sally -yml site.yaml -port 5000
 ```
-
