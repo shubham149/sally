@@ -1,0 +1,24 @@
+kind: pipeline
+type: vm
+name: perf test
+ 
+pool:
+  use: ubuntu
+
+steps:
+  - name: test
+    image: golang:1.18
+    commands:
+      - make test
+  - name: publish
+    image: plugins/docker
+    pull: if-not-exists
+    settings:
+      repo: shubham149/test
+      auto_tag: true
+      auto_tag_suffix: linux-amd64
+      dockerfile: Dockerfile
+      username:
+        from_secret: shubham_username
+      password:
+        from_secret: shubham_password
