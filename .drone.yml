@@ -15,8 +15,8 @@ steps:
     pull: if-not-exists
     settings:
       repo: shubham149/test
-      auto_tag: true
-      auto_tag_suffix: linux-amd64
+      tags:
+        - drone-sally
       dockerfile: Dockerfile
       username:
         from_secret: shubham_username
